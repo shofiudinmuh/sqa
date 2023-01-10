@@ -25,8 +25,10 @@ Route::post('logout', [LoginController::class, 'logout']);
 // Route::get('login2', [AuthController::class, 'loginEmail']);
 
 
-Route::get('register', [RegisterController::class, 'register']);
+Route::get('register', [RegisterController::class, 'register'])->middleware('guest');
 Route::post('register', [RegisterController::class, 'create']);
 
 Route::get('home', [AuthController::class, 'home'])->middleware('auth');
-Route::get('account', [AuthController::class, 'editAkun'])->middleware('auth');
+Route::get('account', [AuthController::class, 'view'])->middleware('auth');
+Route::post('account', [AuthController::class, 'editAkun'])->middleware('auth');
+Route::post('/delete', [AuthController::class, 'destroy'])->name('delete')->middleware('auth');

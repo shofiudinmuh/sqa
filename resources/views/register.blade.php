@@ -43,9 +43,14 @@
                                     @enderror
                                 </div>
                                 <div class="form-group mb-3">
+                                    <input type="text"
+                                        class="form-control form-control-lg @error('password')is-invalid @enderror"
+                                        id="pass" name="pas" placeholder="Password" value="{{ old('password') }}">
+                                </div>
+                                <div class="form-group mb-3">
                                     <input type="password"
                                         class="form-control form-control-lg @error('password')is-invalid @enderror"
-                                        id="password" name="password" placeholder="Password"
+                                        id="password" name="password" placeholder="Confirm Password"
                                         value="{{ old('password') }}">
                                     @error('password')
                                     <div class="text-danger">
